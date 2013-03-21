@@ -1,6 +1,6 @@
 {
   "name": "http-send",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "http send function inspired by express",
   "keywords": [
     "http",
