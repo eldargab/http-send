@@ -30,10 +30,12 @@ stream.on('error', function (err) {
   if (res.headersSent) {
     res.destroy()
   } else { // we can respond
+    var msg = err.stack
     res.writeHead(500, {
-      'Content-Type': 'text/plain'
+      'Content-Type': 'text/plain',
+      'Content-Length': Buffer.byteLength(msg)
     })
-    res.end(err.stack)
+    res.end(msg)
   }
 })
 send(req, res, stream, function () {
