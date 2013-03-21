@@ -27,9 +27,13 @@ send(req, res, 'foo', function () {
 // works only for node >= 0.10
 var stream = fs.createReadStream('foo.txt')
 stream.on('error', function (err) {
-  if (!res.headersSent) { // we can respond
-    res.statusCode = 500
-    send(req, res, err.message)
+  if (res.headersSent) {
+    res.destroy()
+  } else { // we can respond
+    res.writeHead(500, {
+      'Content-Type': 'text/plain'
+    })
+    res.end(err.stack)
   }
 })
 send(req, res, stream, function () {
