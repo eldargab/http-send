@@ -1,0 +1,26 @@
+{
+  "name": "http-send",
+  "version": "0.0.0",
+  "description": "http send function inspired by express",
+  "keywords": [
+    "http",
+    "send"
+  ],
+  "author": "Eldar Gabdullin <eldargab@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eldargab/http-send"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "dependencies": {
+    "fresh": "*",
+    "buffer-crc32": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "supertest": "*"
+  }
+}
