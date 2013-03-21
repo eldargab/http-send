@@ -18,11 +18,13 @@ var send = require('http-send')
 send(req, res, 'Hello world')
 
 // do something when response were closed or finished
+// works only for node >= 0.10
 send(req, res, 'foo', function () {
   // no chances to respond here
 })
 
 // streaming
+// works only for node >= 0.10
 var stream = fs.createReadStream('foo.txt')
 stream.on('error', function (err) {
   if (!res.headersSent) { // we can respond
